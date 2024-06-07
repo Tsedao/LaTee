@@ -316,7 +316,7 @@ if __name__ == "__main__":
     # writer = SummaryWriter(f"./experiments/{experiment_name}.log")
 
     wandb.login(
-        key = '952bced57e5ab4ea62a4e48b87c4381b9f4ab02a'
+        key = ''
     )
     config = vars(args)
     config['loss_fun'] = loss_fun_name

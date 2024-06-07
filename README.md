@@ -1,18 +1,18 @@
 # Latent Logic Tree Extraction for Events Explaination (LaTee)
 
-The code is tested on Ubuntu 22.04, python-3.10.14, CUDA 12.3
+The code was tested on Ubuntu 22.04, python-3.10.14, CUDA 12.3
 ## Installation
 
 1. **Clone the repository**
     ```bash
-    git clone https://github.com/yourusername/yourproject.git
-    cd yourproject
+    git clone https://github.com/Tsedao/LaTee.git
+    cd LaTee
     ```
 
 2. **Create a virtual environment (optional but recommended)**
     ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    python -m venv .venv
+    source .venv/bin/activate  # On Windows, use `venv\Scripts\activate`
     ```
 
 3. **Install the required packages**
@@ -70,7 +70,7 @@ python train_lltot.py \
     --bs=8  \
     --logic_model_lr=0.001 \ 
     --alternate_every=1  \
-    --llm_size=medium \
+    --llm_size=medium \  #  opt-1.3b as medium, opt-6.7b as large 
     --epoch=10 \
     --llm_lr=1e-5 \ 
     --lm_update_steps=1 \ 
