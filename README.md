@@ -74,7 +74,7 @@ python train_lltot.py \
     --epoch=10 \
     --llm_lr=1e-5 \ 
     --lm_update_steps=1 \    # gradient update steps per M step    
-    --inf_llm_size=zephyr-3b \  # M-step LLM size (forzen)
+    --inf_llm_size=zephyr-3b \  # M-step LLM size (frozen)
     --explore \ 
     --warmup  \              # warmup LM learning rate from zero
     --learn_prior \       
