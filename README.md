@@ -58,26 +58,25 @@ Prepare your dataset under `data` folder. For each dataset, it should contains t
 
 ### Training
 
-First config your huggingface cache dir `cache_dir` and wandb key in `train_lltot.py`,
+First config your huggingface cache dir `cache_dir` and wandb-api key in `train_lltot.py`,
 Start trainning by calling
 ```bash
 python train_lltot.py \
     --gpu=1 \
-    --dataset=synthetic5 \ # or use your customized dataset under folder data/
-    --max_depth=3 \
-    --topk=3 \
-    --max_width=5 \ 
-    --bs=8  \
-    --logic_model_lr=0.001 \ 
-    --alternate_every=1  \
-    --llm_size=medium \  #  opt-1.3b as medium, opt-6.7b as large 
+    --dataset=synthetic5 \   # or use your customized dataset under folder data/
+    --max_depth=3 \   
+    --topk=3 \               # expand nodes per level (topk <= max_width)
+    --max_width=5 \          # down sampling event numbers 
+    --bs=8  \ 
+    --logic_model_lr=0.001 \ # logic model learning rate  
+    --alternate_every=1  \   # Update frequencies between E step and M step
+    --llm_size=medium \      # E-step LLM size (tunable) opt-1.3b as medium, opt-6.7b as large 
     --epoch=10 \
     --llm_lr=1e-5 \ 
-    --lm_update_steps=1 \ 
-    --inf_llm_size=zephyr-3b \ 
+    --lm_update_steps=1 \    # gradient update steps per M step    
+    --inf_llm_size=zephyr-3b \  # M-step LLM size (forzen)
     --explore \ 
-    --warmup  \
-    --seed=112 \
-    --learn_priored=112 \ 
-    --learn_prior
+    --warmup  \              # warmup LM learning rate from zero
+    --learn_prior \       
+    --seed=112 
 ``` 
