@@ -1,6 +1,6 @@
 # Latent Logic Tree Extraction for Events Explaination (LaTee)
 
-The code was tested on Ubuntu 22.04, python-3.10.14, CUDA 12.3
+The code was tested on Ubuntu 22.04, python-3.10.14, CUDA 12.3 with one H100 Card
 ## Installation
 
 1. **Clone the repository**
