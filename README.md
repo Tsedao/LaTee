@@ -56,7 +56,7 @@ Prepare your dataset under `data` folder. For each dataset, it should contains t
    y = list[int]          # length of y should equal to x
 ```
 
-### Trainning
+### Training
 
 First config your huggingface cache dir `cache_dir` and wandb key in `train_lltot.py`,
 Start trainning by calling
