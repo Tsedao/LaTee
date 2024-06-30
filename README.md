@@ -1,6 +1,6 @@
 # Latent Logic Tree Extraction for Events Explaination (LaTee)
 
-The code was tested on Ubuntu 22.04, python-3.10.14, CUDA 12.3 with one H100 Card
+The code was tested on Ubuntu 22.04, python-3.10.14, CUDA 12.3.
 ## Installation
 
 1. **Clone the repository**
@@ -18,6 +18,14 @@ The code was tested on Ubuntu 22.04, python-3.10.14, CUDA 12.3 with one H100 Car
 3. **Install the required packages**
     ```bash
     pip install -r requirements.txt
+    ```
+4. **Update 4-bit quantization dependencies** \
+make sure you have installed the latest version of bitsandbytes library
+    ```bash
+    pip install -q -U bitsandbytes
+    pip install -q -U git+https://github.com/huggingface/transformers.git
+    pip install -q -U git+https://github.com/huggingface/peft.git
+    pip install -q -U git+https://github.com/huggingface/accelerate.git
     ```
 
 ## Usage
@@ -58,7 +66,7 @@ Prepare your dataset under `data` folder. For each dataset, it should contains t
 
 ### Training
 
-First config your huggingface cache dir `cache_dir` and wandb-api key in `train_lltot.py`,
+First config your huggingface cache dir `cache_dir` (set `local_files_only=True` in `AutoModel.from_pretrained()` if you want to load the model locally) and wandb-api key in `train_lltot.py`,
 Start trainning by calling
 ```bash
 python train_lltot.py \
